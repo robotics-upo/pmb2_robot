@@ -21,6 +21,7 @@
   <exec_depend>launch</exec_depend>
   <exec_depend>launch_pal</exec_depend>
   <!-- <exec_depend>imu_sensor_broadcaster</exec_depend> -->
+  <exec_depend>ros2controlcli</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
