@@ -2,6 +2,9 @@
 Changelog for package pmb2_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 5.0.16 (2024-02-02)
 -------------------
 * Merge branch 'feat/register-components' into 'humble-devel'

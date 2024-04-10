@@ -2,6 +2,11 @@
 Changelog for package pmb2_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add ros2controlcli dependency
+* Contributors: Noel Jimenez
+
 5.0.16 (2024-02-02)
 -------------------
 
