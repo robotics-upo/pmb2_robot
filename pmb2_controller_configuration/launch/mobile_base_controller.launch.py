@@ -18,13 +18,24 @@ from ament_index_python.packages import get_package_share_directory
 
 from controller_manager.launch_utils import generate_load_controller_launch_description
 from launch_pal.param_utils import merge_param_files
+from launch import LaunchDescription
+from launch.substitutions import LaunchConfiguration
+from launch.actions import DeclareLaunchArgument, OpaqueFunction
 
 
-def generate_launch_description():
+def controller_bringup(context, *args, **kwargs):
 
-    default_config = os.path.join(
-        get_package_share_directory('pmb2_controller_configuration'),
-        'config', 'mobile_base_controller.yaml')
+    actions = []
+    is_public_sim = LaunchConfiguration('is_public_sim').perform(context)
+
+    if is_public_sim == 'True' or is_public_sim == 'true':
+        default_config = os.path.join(
+            get_package_share_directory('pmb2_controller_configuration'),
+            'config', 'mobile_base_controller_sim.yaml')
+    else:
+        default_config = os.path.join(
+            get_package_share_directory('pmb2_controller_configuration'),
+            'config', 'mobile_base_controller.yaml')
 
     calibration_config = '/etc/calibration/master_calibration.yaml'
 
@@ -33,7 +44,26 @@ def generate_launch_description():
     else:
         params_file = default_config
 
-    return generate_load_controller_launch_description(
+    load_controller_arg = generate_load_controller_launch_description(
         controller_name='mobile_base_controller',
         controller_type='diff_drive_controller/DiffDriveController',
         controller_params_file=params_file)
+
+    actions.append(load_controller_arg)
+    return actions
+
+
+def generate_launch_description():
+
+    is_public_sim_arg = DeclareLaunchArgument(
+        'is_public_sim',
+        default_value='false',
+        description='Whether or not you are using a public simulation',
+    )
+
+    ld = LaunchDescription()
+    ld.add_action(is_public_sim_arg)
+    controller_bringup_launch = OpaqueFunction(function=controller_bringup)
+    ld.add_action(controller_bringup_launch)
+
+    return ld
