@@ -2,6 +2,16 @@
 Changelog for package pmb2_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'feat/enable-dlo-sim' into 'humble-devel'
+  Feat/enable dlo sim
+  See merge request robots/pmb2_robot!124
+* cosmetic
+* added public sim config mobile base controller and restored original laser noise
+* enable dlo sim and reduce laser noise
+* Contributors: andreacapodacqua
+
 5.0.18 (2024-04-11)
 -------------------
 

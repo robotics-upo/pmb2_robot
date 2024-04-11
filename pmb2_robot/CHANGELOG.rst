@@ -2,6 +2,9 @@
 Changelog for package pmb2_robot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 5.0.18 (2024-04-11)
 -------------------
 * update readme with the lastest info on TIAGo Base
