@@ -2,6 +2,11 @@
 Changelog for package pmb2_robot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* update readme with the lastest info on TIAGo Base
+* Contributors: Sai Kishor Kothakota
+
 5.0.17 (2024-04-10)
 -------------------
 
