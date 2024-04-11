@@ -2,8 +2,8 @@
 Changelog for package pmb2_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.0.19 (2024-04-11)
+-------------------
 * added public sim config mobile base controller and restored original laser noise
 * enable dlo sim and reduce laser noise
 * Contributors: andreacapodacqua
