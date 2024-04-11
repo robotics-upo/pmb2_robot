@@ -26,9 +26,9 @@ from launch.actions import DeclareLaunchArgument, OpaqueFunction
 def controller_bringup(context, *args, **kwargs):
 
     actions = []
-    is_public_sim = LaunchConfiguration("is_public_sim").perform(context)
+    is_public_sim = LaunchConfiguration('is_public_sim').perform(context)
 
-    if is_public_sim == "True" or is_public_sim == "true":
+    if is_public_sim == 'True' or is_public_sim == 'true':
         default_config = os.path.join(
             get_package_share_directory('pmb2_controller_configuration'),
             'config', 'mobile_base_controller_sim.yaml')
@@ -56,9 +56,9 @@ def controller_bringup(context, *args, **kwargs):
 def generate_launch_description():
 
     is_public_sim_arg = DeclareLaunchArgument(
-        "is_public_sim",
-        default_value="false",
-        description="Whether or not you are using a public simulation",
+        'is_public_sim',
+        default_value='false',
+        description='Whether or not you are using a public simulation',
     )
 
     ld = LaunchDescription()
