@@ -13,32 +13,75 @@
 # limitations under the License.
 
 from launch import LaunchDescription
-from launch_pal.include_utils import include_launch_py_description
 from launch_ros.actions import Node
+from launch.actions import DeclareLaunchArgument
+from launch_pal.arg_utils import LaunchArgumentsBase
+from dataclasses import dataclass
+from launch_pal.robot_arguments import PMB2Args
+from launch_pal.arg_utils import CommonArgs
+from launch_pal.include_utils import include_scoped_launch_py_description
+from launch_ros.substitutions import FindPackageShare
+from launch.substitutions import PathJoinSubstitution, LaunchConfiguration
+
+
+@dataclass(frozen=True)
+class LaunchArguments(LaunchArgumentsBase):
+    wheel_model: DeclareLaunchArgument = PMB2Args.wheel_model
+    laser_model: DeclareLaunchArgument = PMB2Args.laser_model
+    courier_rgbd_sensors: DeclareLaunchArgument = PMB2Args.courier_rgbd_sensors
+    use_sim_time: DeclareLaunchArgument = CommonArgs.use_sim_time
 
 
 def generate_launch_description():
 
-    robot_state_publisher = include_launch_py_description(
-        'pmb2_description', ['launch', 'robot_state_publisher.launch.py'])
-
-    start_joint_pub_gui = Node(
-        package='joint_state_publisher_gui',
-        executable='joint_state_publisher_gui',
-        name='joint_state_publisher_gui',
-        output='screen')
-
-    start_rviz_cmd = Node(
-        package='rviz2',
-        executable='rviz2',
-        name='rviz2',
-        #       arguments=['-d', rviz_config_file],
-        output='screen')
-
+    # Create the launch description and populate
     ld = LaunchDescription()
+    launch_arguments = LaunchArguments()
 
-    ld.add_action(robot_state_publisher)
-    ld.add_action(start_joint_pub_gui)
-    ld.add_action(start_rviz_cmd)
+    launch_arguments.add_to_launch_description(ld)
+
+    declare_actions(ld, launch_arguments)
 
     return ld
+
+
+def declare_actions(
+    launch_description: LaunchDescription, launch_args: LaunchArguments
+):
+    robot_state_publisher = include_scoped_launch_py_description(
+        pkg_name="pmb2_description",
+        paths=["launch", "robot_state_publisher.launch.py"],
+        launch_arguments={
+            "wheel_model": launch_args.wheel_model,
+            "laser_model": launch_args.laser_model,
+            "courier_rgbd_sensors": launch_args.courier_rgbd_sensors,
+            "use_sim_time": launch_args.use_sim_time,
+        },
+    )
+
+    launch_description.add_action(robot_state_publisher)
+
+    start_joint_pub_gui = Node(
+        package="joint_state_publisher_gui",
+        executable="joint_state_publisher_gui",
+        name="joint_state_publisher_gui",
+        output="screen",
+    )
+
+    launch_description.add_action(start_joint_pub_gui)
+
+    rviz_config_file = PathJoinSubstitution(
+        [FindPackageShare("pmb2_description"), "config", "pmb2.rviz"]
+    )
+
+    start_rviz_cmd = Node(
+        package="rviz2",
+        executable="rviz2",
+        name="rviz2",
+        arguments=["-d", rviz_config_file],
+        output="screen",
+        parameters=[{"use_sim_time": LaunchConfiguration("use_sim_time")}],
+    )
+    launch_description.add_action(start_rviz_cmd)
+
+    return

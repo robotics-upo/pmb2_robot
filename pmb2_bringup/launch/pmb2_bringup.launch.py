@@ -1,4 +1,4 @@
-# Copyright (c) 2022 PAL Robotics S.L. All rights reserved.
+# Copyright (c) 2024 PAL Robotics S.L. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,28 +13,67 @@
 # limitations under the License.
 
 from launch import LaunchDescription
-from launch_pal.include_utils import include_launch_py_description
+from launch.actions import DeclareLaunchArgument
+from launch_pal.include_utils import include_scoped_launch_py_description
+from launch_pal.arg_utils import LaunchArgumentsBase, CommonArgs
+from launch_pal.robot_arguments import PMB2Args
+from dataclasses import dataclass
+
+
+@dataclass(frozen=True)
+class LaunchArguments(LaunchArgumentsBase):
+    wheel_model: DeclareLaunchArgument = PMB2Args.wheel_model
+    laser_model: DeclareLaunchArgument = PMB2Args.laser_model
+    courier_rgbd_sensors: DeclareLaunchArgument = PMB2Args.courier_rgbd_sensors
+    use_sim_time: DeclareLaunchArgument = CommonArgs.use_sim_time
 
 
 def generate_launch_description():
 
-    # TODO missing equivalent to ROS1 robot_pose_node
-    # TODO missing equivalent to tf_lookup, but it may have been legacy from tf1
-
-    default_controllers_launch = include_launch_py_description(
-        'pmb2_controller_configuration', ['launch', 'default_controllers.launch.py'])
-
-    twist_mux_launch = include_launch_py_description(
-        'pmb2_bringup', ['launch', 'twist_mux.launch.py'])
-
-    pmb2_state_publisher = include_launch_py_description(
-        'pmb2_description', ['launch', 'robot_state_publisher.launch.py'])
-
-    # Create the launch description and populate
+    # Create the launch description
     ld = LaunchDescription()
 
-    ld.add_action(default_controllers_launch)
-    ld.add_action(twist_mux_launch)
-    ld.add_action(pmb2_state_publisher)
+    launch_arguments = LaunchArguments()
+
+    launch_arguments.add_to_launch_description(ld)
+
+    declare_actions(ld, launch_arguments)
 
     return ld
+
+
+def declare_actions(
+    launch_description: LaunchDescription, launch_args: LaunchArguments
+):
+    default_controllers = include_scoped_launch_py_description(
+        pkg_name="pmb2_controller_configuration",
+        paths=["launch", "default_controllers.launch.py"],
+        launch_arguments={}
+    )
+
+    launch_description.add_action(default_controllers)
+
+    twist_mux = include_scoped_launch_py_description(
+        pkg_name="pmb2_bringup",
+        paths=["launch", "twist_mux.launch.py"],
+        launch_arguments={
+            "use_sim_time": launch_args.use_sim_time,
+        },
+    )
+
+    launch_description.add_action(twist_mux)
+
+    robot_state_publisher = include_scoped_launch_py_description(
+        pkg_name="pmb2_description",
+        paths=["launch", "robot_state_publisher.launch.py"],
+        launch_arguments={
+            "wheel_model": launch_args.wheel_model,
+            "laser_model": launch_args.laser_model,
+            "courier_rgbd_sensors": launch_args.courier_rgbd_sensors,
+            "use_sim_time": launch_args.use_sim_time,
+        },
+    )
+
+    launch_description.add_action(robot_state_publisher)
+
+    return

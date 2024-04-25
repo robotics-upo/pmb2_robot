@@ -20,7 +20,7 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 
   foreach(laser_model no-laser hokuyo sick-551 sick-561 sick-571)
-      foreach(courier_rgbd_sensors False True)
+      foreach(courier_rgbd_sensors false true)
       add_launch_test(
         test/test_description.launch.py
         TARGET "pmb2_description_${laser_model}_${courier_rgbd_sensors}"
