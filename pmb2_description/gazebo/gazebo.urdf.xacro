@@ -16,10 +16,9 @@
  -->
 
 <robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
-       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       xmlns:xacro="http://ros.org/wiki/xacro"
-       name="pmb2">
+  xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+  xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+  xmlns:xacro="http://ros.org/wiki/xacro" name="pmb2">
 
   <gazebo>
     <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
@@ -39,33 +38,9 @@
       <topic_name>ground_truth_odom</topic_name>
       <update_rate>100.0</update_rate>
       <xacro:if value="${is_multiple}">
-          <namespace>/${nsp}</namespace>
+        <namespace>/${nsp}</namespace>
       </xacro:if>
     </plugin>
-  </gazebo>
-
-  <gazebo reference="base_imu_link">
-    <sensor name="imu_sensor" type="imu">
-      <always_on>1</always_on>
-      <update_rate>10.0</update_rate>
-      <imu>
-        <noise>
-          <type>gaussian</type>
-          <rate>
-            <mean>0.0</mean>
-            <stddev>2e-4</stddev>
-            <bias_mean>0.0000075</bias_mean>
-            <bias_stddev>0.0000008</bias_stddev>
-          </rate>
-          <accel>
-            <mean>0.0</mean>
-            <stddev>1.7e-2</stddev>
-            <bias_mean>0.1</bias_mean>
-            <bias_stddev>0.001</bias_stddev>
-          </accel>
-        </noise>
-      </imu>
-    </sensor>
   </gazebo>
 
   <!-- define global properties -->
