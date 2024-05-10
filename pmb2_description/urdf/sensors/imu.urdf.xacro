@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- 
-  Copyright (c) 2022 PAL Robotics S.L. All rights reserved.
+  Copyright (c) 2024 PAL Robotics S.L. All rights reserved.
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -14,9 +14,15 @@
   See the License for the specific language governing permissions and
   limitations under the License.
  -->
+
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
+  <!-- INCLUDES -->
+  <xacro:include filename="$(find pmb2_description)/urdf/sensors/imu.gazebo.xacro" />
+
+  <!-- MACRO DEFINITION -->
   <xacro:macro name="imu_sensor" params="name parent *origin update_rate">
+
     <link name="${name}_link">
       <inertial>
         <mass value="0.01"/>
@@ -36,29 +42,9 @@
       <xacro:insert_block name="origin"/>
     </joint>
 
-    <gazebo reference="${name}_link">
-      <sensor name="${name}_sensor" type="imu">
-        <always_on>1</always_on>
-        <update_rate>100.0</update_rate>
-        <imu>
-          <noise>
-            <type>gaussian</type>
-            <rate>
-              <mean>0.0</mean>
-              <stddev>2e-4</stddev>
-              <bias_mean>0.0000075</bias_mean>
-              <bias_stddev>0.0000008</bias_stddev>
-            </rate>
-            <accel>
-              <mean>0.0</mean>
-              <stddev>1.7e-2</stddev>
-              <bias_mean>0.1</bias_mean>
-              <bias_stddev>0.001</bias_stddev>
-            </accel>
-          </noise>
-        </imu>
-      </sensor>
-    </gazebo>
+    <!-- Gazebo config-->
+    <xacro:imu_gazebo name="${name}" update_rate="${update_rate}" />
+
   </xacro:macro>
 
 </robot>
