@@ -24,9 +24,7 @@
       <inertial>
         <origin xyz="-0.00634599 0.00005347 -0.02037519" rpy="0 0 0"/>
         <mass value="0.05144761"/>
-        <inertia  ixx="0.00001513" ixy="-0.00000003" ixz="0.00000267"
-                  iyy="0.00001309" iyz="-0.00000005"
-                  izz="0.00001198"/>
+        <inertia ixx="0.00001513" ixy="-0.00000003" ixz="0.00000267" iyy="0.00001309" iyz="-0.00000005" izz="0.00001198"/>
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -47,10 +45,8 @@
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="0.08855784"/>
-        <inertia  ixx="0.00001075" ixy="0" ixz="0"
-                  iyy="0.00001541" iyz="0"
-                  izz="0.00001075"/>
-        </inertial>
+        <inertia ixx="0.00001075" ixy="0" ixz="0" iyy="0.00001541" iyz="0" izz="0.00001075"/>
+      </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
@@ -61,7 +57,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-	  <sphere radius="${radius}" /> 
+          <sphere radius="${radius}" />
         </geometry>
       </collision>
     </link>

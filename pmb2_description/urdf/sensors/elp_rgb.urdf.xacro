@@ -16,7 +16,7 @@
  -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
- <xacro:include filename="$(find pmb2_description)/urdf/sensors/elp_rgb.gazebo.xacro" />
+  <xacro:include filename="$(find pmb2_description)/urdf/sensors/elp_rgb.gazebo.xacro" />
 
   <!-- Macro -->
   <xacro:macro name="elp_rgb" params="name parent *origin *optical_origin">
@@ -33,9 +33,7 @@
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="0.01" />
-        <inertia ixx="0.000030"  ixy="0.0"  ixz="0.0"
-                 iyy="0.000030"  iyz="0.0"
-                 izz="0.000002" />
+        <inertia ixx="0.000030" ixy="0.0" ixz="0.0" iyy="0.000030" iyz="0.0" izz="0.000002" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 90 0"/>

@@ -24,5 +24,4 @@ def generate_test_description():
     return generate_urdf_test_description(
         include_launch_py_description(
             'pmb2_description', ['launch', 'robot_state_publisher.launch.py']),
-
     )
