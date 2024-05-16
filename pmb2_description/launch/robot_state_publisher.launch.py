@@ -32,7 +32,7 @@ from launch_pal.arg_utils import CommonArgs
 class LaunchArguments(LaunchArgumentsBase):
     wheel_model: DeclareLaunchArgument = PMB2Args.wheel_model
     laser_model: DeclareLaunchArgument = PMB2Args.laser_model
-    courier_rgbd_sensors: DeclareLaunchArgument = PMB2Args.courier_rgbd_sensors
+    has_courier_rgbd_sensors: DeclareLaunchArgument = PMB2Args.has_courier_rgbd_sensors
     use_sim_time: DeclareLaunchArgument = CommonArgs.use_sim_time
 
 
@@ -88,8 +88,8 @@ def create_robot_description_param(context, *args, **kwargs):
 
     xacro_input_args = {
         'laser_model': read_launch_argument('laser_model', context),
-        'courier_rgbd_sensors': read_launch_argument('courier_rgbd_sensors', context),
-        'use_sim': read_launch_argument('use_sim_time', context),
+        'has_courier_rgbd_sensors': read_launch_argument('has_courier_rgbd_sensors', context),
+        'use_sim_time': read_launch_argument('use_sim_time', context),
     }
     robot_description = load_xacro(xacro_file_path, xacro_input_args)
 
