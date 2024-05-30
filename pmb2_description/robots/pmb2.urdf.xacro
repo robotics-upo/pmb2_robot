@@ -75,7 +75,7 @@
   <!-- ROBOT DEFINITION -->
 
   <!-- Now we can start using the macros included above to define the actual robot -->
-  <xacro:base_sensors name="base"/>
+  <xacro:base_sensors name="base" laser_model="$(arg laser_model)" sonars="true" has_microphone="$(arg has_microphone)"/>
 
   <!-- RGBD Sensors -->
   <xacro:if value="${has_courier_rgbd_sensors}">
