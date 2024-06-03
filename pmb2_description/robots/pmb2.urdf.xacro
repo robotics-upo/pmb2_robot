@@ -34,7 +34,7 @@
   <!-- Execution env config -->
   <xacro:arg name="use_sim_time" default="false"/>
   <xacro:arg name="is_multiple" default="false"/>
-  <xacro:arg name=" namespace" default=""/>
+  <xacro:arg name="namespace" default=""/>
   <xacro:arg name="is_public_sim" default="false"/>
 
   <!-- PROPERTIES -->
@@ -68,6 +68,9 @@
 
   <!-- Materials for visualization -->
   <xacro:include filename="$(find pal_urdf_utils)/urdf/materials.urdf.xacro" />
+
+  <!-- Utils for degree to radian conversion -->
+  <xacro:include filename="$(find pal_urdf_utils)/urdf/deg_to_rad.urdf.xacro" />
 
   <!-- ROS 2 Control -->
   <xacro:include filename="$(find pmb2_description)/ros2_control/ros2_control.urdf.xacro" />

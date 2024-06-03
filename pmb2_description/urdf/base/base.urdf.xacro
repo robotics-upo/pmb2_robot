@@ -36,7 +36,6 @@
   <xacro:property name="caster_offset_z" value="-0.0335"/>
 
   <!-- INCLUDES -->
-  <xacro:include filename="$(find pal_urdf_utils)/urdf/deg_to_rad.urdf.xacro"/>
   <xacro:include filename="$(find pmb2_description)/urdf/base/base.gazebo.xacro"/>
   <xacro:include filename="$(find pmb2_description)/urdf/wheels/wheel.urdf.xacro"/>
   <xacro:include filename="$(find pmb2_description)/urdf/wheels/caster.urdf.xacro"/>

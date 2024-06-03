@@ -18,7 +18,6 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
   <!-- INCLUDES -->
-  <xacro:include filename="$(find pal_urdf_utils)/urdf/deg_to_rad.urdf.xacro" />
   <xacro:include filename="$(find pmb2_description)/urdf/sensors/courier.urdf.xacro" />
 
   <!-- MACRO DEFINITION-->
