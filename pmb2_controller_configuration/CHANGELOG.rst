@@ -2,6 +2,9 @@
 Changelog for package pmb2_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 5.0.19 (2024-04-11)
 -------------------
 * Merge branch 'feat/enable-dlo-sim' into 'humble-devel'
