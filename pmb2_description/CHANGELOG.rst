@@ -2,8 +2,8 @@
 Changelog for package pmb2_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.0.20 (2024-06-03)
+-------------------
 * Merge branch 'fix/aca/reduced-laser-noise' into 'humble-devel'
   reduced laser_noise
   See merge request robots/pmb2_robot!130
