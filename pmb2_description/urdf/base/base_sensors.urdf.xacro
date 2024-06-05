@@ -24,6 +24,7 @@
 
   <!-- INCLUDES -->
   <xacro:include filename="$(find pmb2_description)/urdf/base/base.urdf.xacro"/>
+  <xacro:include filename="$(find pmb2_description)/urdf/sensors/imu.urdf.xacro"/>
   <xacro:include filename="$(find pmb2_description)/urdf/sensors/hokuyo_urg_04lx_ug01_laser.urdf.xacro"/>
   <xacro:include filename="$(find pmb2_description)/urdf/sensors/sick_tim551_laser.urdf.xacro"/>
   <xacro:include filename="$(find pmb2_description)/urdf/sensors/sick_tim561_laser.urdf.xacro"/>
@@ -32,7 +33,7 @@
   <xacro:include filename="$(find pmb2_description)/urdf/sensors/microphone.urdf.xacro"/>
 
   <!-- MACRO DEFINITION -->
-  <xacro:macro name="base_sensors" params="name laser_model:=sick-571 sonars:=false has_microphone:=false" >
+  <xacro:macro name="base_sensors" params="name laser_model:=sick-571 has_sonars:=false has_microphone:=false" >
 
     <!-- IMU -->
     <xacro:imu_sensor name="${name}_imu" parent="${name}_link" update_rate="100.0">
