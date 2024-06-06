@@ -18,6 +18,7 @@
 
   <xacro:include filename="$(find pmb2_description)/urdf/sensors/structure_sensor.urdf.xacro"/>
   <xacro:include filename="$(find pmb2_description)/urdf/sensors/elp_rgb.urdf.xacro"/>
+  <xacro:include filename="$(find pal_urdf_utils)/urdf/deg_to_rad.urdf.xacro" />
 
   <!-- base RGBD characteristics -->
   <xacro:property name="base_rgbd_x" value="0.22697"/>
