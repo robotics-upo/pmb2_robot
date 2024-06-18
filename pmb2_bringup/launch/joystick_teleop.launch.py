@@ -24,7 +24,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     pkg_dir = get_package_share_directory('pmb2_bringup')
-    joy_teleop_path = os.path.join(pkg_dir, 'config', 'joy_teleop.yaml')
+    joy_teleop_path = os.path.join(pkg_dir, 'config', 'joy_teleop', 'joy_teleop.yaml')
 
     declare_cmd_vel = DeclareLaunchArgument(
         'cmd_vel', default_value='input_joy/cmd_vel',
@@ -41,10 +41,10 @@ def generate_launch_description():
         remappings=[('cmd_vel', LaunchConfiguration('cmd_vel'))])
 
     joy_node = Node(
-        package='joy',
+        package='joy_linux',
         executable='joy_node',
         name='joystick',
-        parameters=[os.path.join(pkg_dir, 'config', 'joy_config.yaml')])
+        parameters=[os.path.join(pkg_dir, 'config', 'joy_teleop', 'joy_config.yaml')])
 
     ld = LaunchDescription()
 
