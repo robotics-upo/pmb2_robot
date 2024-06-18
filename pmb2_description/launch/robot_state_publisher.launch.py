@@ -12,20 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from dataclasses import dataclass
 import os
 from pathlib import Path
+
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, OpaqueFunction, SetLaunchConfiguration
 from launch.substitutions import LaunchConfiguration
-from launch_pal.arg_utils import read_launch_argument
+from launch_pal.arg_utils import CommonArgs, LaunchArgumentsBase, read_launch_argument
+from launch_pal.robot_arguments import PMB2Args
 from launch_param_builder import load_xacro
 from launch_ros.actions import Node
-from dataclasses import dataclass
-from launch_pal.arg_utils import LaunchArgumentsBase
 from launch_ros.parameter_descriptions import ParameterValue
-from launch_pal.robot_arguments import PMB2Args
-from launch_pal.arg_utils import CommonArgs
 
 
 @dataclass(frozen=True)
@@ -60,13 +59,13 @@ def declare_actions(
     # Using ParameterValue is needed so ROS knows the parameter type
     # Otherwise https://github.com/ros2/launch_ros/issues/136
     rsp = Node(
-        package="robot_state_publisher",
-        executable="robot_state_publisher",
-        output="both",
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        output='both',
         parameters=[
             {
-                "robot_description": ParameterValue(
-                    LaunchConfiguration("robot_description"), value_type=str
+                'robot_description': ParameterValue(
+                    LaunchConfiguration('robot_description'), value_type=str
                 )
             }
         ],
@@ -81,9 +80,9 @@ def create_robot_description_param(context, *args, **kwargs):
 
     xacro_file_path = Path(
         os.path.join(
-            get_package_share_directory("pmb2_description"),
-            "robots",
-            "pmb2.urdf.xacro",
+            get_package_share_directory('pmb2_description'),
+            'robots',
+            'pmb2.urdf.xacro',
         )
     )
 
@@ -96,4 +95,4 @@ def create_robot_description_param(context, *args, **kwargs):
     }
     robot_description = load_xacro(xacro_file_path, xacro_input_args)
 
-    return [SetLaunchConfiguration("robot_description", robot_description)]
+    return [SetLaunchConfiguration('robot_description', robot_description)]

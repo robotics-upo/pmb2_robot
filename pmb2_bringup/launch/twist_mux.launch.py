@@ -12,12 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
 from dataclasses import dataclass
+import os
+
 from ament_index_python.packages import get_package_share_directory
-from launch.actions import DeclareLaunchArgument
 from launch import LaunchDescription
-from launch_pal.arg_utils import LaunchArgumentsBase, CommonArgs
+from launch.actions import DeclareLaunchArgument
+from launch_pal.arg_utils import CommonArgs, LaunchArgumentsBase
 from launch_pal.include_utils import include_scoped_launch_py_description
 
 
@@ -52,7 +53,7 @@ def declare_actions(
             'config_locks': os.path.join(pkg_dir, 'config', 'twist_mux', 'twist_mux_locks.yaml'),
             'config_topics': os.path.join(pkg_dir, 'config', 'twist_mux', 'twist_mux_topics.yaml'),
             'config_joy': os.path.join(pkg_dir, 'config', 'twist_mux', 'joystick.yaml'),
-            "use_sim_time": launch_args.use_sim_time,
+            'use_sim_time': launch_args.use_sim_time,
         }
     )
 
