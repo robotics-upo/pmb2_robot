@@ -26,6 +26,7 @@ class LaunchArguments(LaunchArgumentsBase):
     laser_model: DeclareLaunchArgument = PMB2Args.laser_model
     has_courier_rgbd_sensors: DeclareLaunchArgument = PMB2Args.has_courier_rgbd_sensors
     use_sim_time: DeclareLaunchArgument = CommonArgs.use_sim_time
+    is_public_sim: DeclareLaunchArgument = CommonArgs.is_public_sim
 
 
 def generate_launch_description():
@@ -71,6 +72,7 @@ def declare_actions(
             "laser_model": launch_args.laser_model,
             "has_courier_rgbd_sensors": launch_args.has_courier_rgbd_sensors,
             "use_sim_time": launch_args.use_sim_time,
+            "is_public_sim": launch_args.is_public_sim,
         },
     )
 
