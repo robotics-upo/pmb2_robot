@@ -74,6 +74,7 @@
 
   <!-- ROS 2 Control -->
   <xacro:include filename="$(find pmb2_description)/ros2_control/ros2_control.urdf.xacro" />
+  <xacro:pmb2_ros2_control />
 
   <!-- ROBOT DEFINITION -->
 
@@ -84,8 +85,5 @@
   <xacro:if value="${has_courier_rgbd_sensors}">
     <xacro:cameras_add_on name="cameras_add_on" parent="base_link"/>
   </xacro:if>
-
-  <!-- ROS 2 Control -->
-  <xacro:pmb2_ros2_control />
 
 </robot>
