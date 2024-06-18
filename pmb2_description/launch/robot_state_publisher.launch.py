@@ -34,6 +34,7 @@ class LaunchArguments(LaunchArgumentsBase):
     laser_model: DeclareLaunchArgument = PMB2Args.laser_model
     has_courier_rgbd_sensors: DeclareLaunchArgument = PMB2Args.has_courier_rgbd_sensors
     use_sim_time: DeclareLaunchArgument = CommonArgs.use_sim_time
+    is_public_sim: DeclareLaunchArgument = CommonArgs.is_public_sim
 
 
 def generate_launch_description():
@@ -90,6 +91,8 @@ def create_robot_description_param(context, *args, **kwargs):
         'laser_model': read_launch_argument('laser_model', context),
         'has_courier_rgbd_sensors': read_launch_argument('has_courier_rgbd_sensors', context),
         'use_sim_time': read_launch_argument('use_sim_time', context),
+        'is_public_sim': read_launch_argument('is_public_sim', context),
+
     }
     robot_description = load_xacro(xacro_file_path, xacro_input_args)
 
