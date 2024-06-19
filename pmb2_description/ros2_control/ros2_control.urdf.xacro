@@ -39,7 +39,7 @@ limitations under the License.
       <!-- Execution env config -->
       <xacro:if value="${use_sim_time}">
 
-        <!-- HW interface: gazebo-->
+        <!-- HW interface gazebo-->
         <hardware>
           <plugin>gazebo_ros2_control/GazeboSystem</plugin>
         </hardware>
@@ -50,7 +50,7 @@ limitations under the License.
       </xacro:if>
       <xacro:unless value="${use_sim_time}">
 
-        <!-- HW interface: robot control-->
+        <!-- HW interface robot control-->
         <hardware>
           <plugin>robot_control/RobotControl</plugin>
         </hardware>
