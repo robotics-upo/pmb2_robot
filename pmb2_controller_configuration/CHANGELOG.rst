@@ -2,6 +2,11 @@
 Changelog for package pmb2_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Remove casters and suspension from joint_state_broadcaster
+* Contributors: Noel Jimenez
+
 5.0.20 (2024-06-03)
 -------------------
 
