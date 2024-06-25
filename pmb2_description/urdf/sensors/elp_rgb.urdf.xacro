@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- 
-  Copyright (c) 2022 PAL Robotics S.L. All rights reserved.
+  Copyright (c) 2024 PAL Robotics S.L. All rights reserved.
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
  -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
- <xacro:include filename="$(find pmb2_description)/urdf/sensors/elp_rgb.gazebo.xacro" />
+  <xacro:include filename="$(find pmb2_description)/urdf/sensors/elp_rgb.gazebo.xacro" />
 
   <!-- Macro -->
   <xacro:macro name="elp_rgb" params="name parent *origin *optical_origin">
@@ -25,7 +25,7 @@
     <joint name="${name}_joint" type="fixed">
       <xacro:insert_block name="origin"/>
       <axis xyz="0 0 1"/>
-      <parent link="${parent}_link"/>
+      <parent link="${parent}"/>
       <child link="${name}_link"/>
     </joint>
 
@@ -33,9 +33,7 @@
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="0.01" />
-        <inertia ixx="0.000030"  ixy="0.0"  ixz="0.0"
-                 iyy="0.000030"  iyz="0.0"
-                 izz="0.000002" />
+        <inertia ixx="0.000030" ixy="0.0" ixz="0.0" iyy="0.000030" iyz="0.0" izz="0.000002" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 90 0"/>

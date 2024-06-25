@@ -12,46 +12,64 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from dataclasses import dataclass
 import os
 
 from ament_index_python.packages import get_package_share_directory
-
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
+from launch_pal.arg_utils import LaunchArgumentsBase
 from launch_ros.actions import Node
 
 
+@dataclass(frozen=True)
+class LaunchArguments(LaunchArgumentsBase):
+
+    cmd_vel: DeclareLaunchArgument = DeclareLaunchArgument(
+        name='cmd_vel',
+        default_value='input_joy/cmd_vel',
+        description='Joystick cmd_vel topic',
+    )
+
+
 def generate_launch_description():
+
+    # Create the launch description
+    ld = LaunchDescription()
+
+    launch_arguments = LaunchArguments()
+
+    launch_arguments.add_to_launch_description(ld)
+
+    declare_actions(ld, launch_arguments)
+
+    return ld
+
+
+def declare_actions(
+    launch_description: LaunchDescription, launch_args: LaunchArguments
+):
+
     pkg_dir = get_package_share_directory('pmb2_bringup')
-    joy_teleop_path = os.path.join(pkg_dir, 'config', 'joy_teleop.yaml')
-
-    declare_cmd_vel = DeclareLaunchArgument(
-        'cmd_vel', default_value='input_joy/cmd_vel',
-        description='Joystick cmd_vel topic')
-
-    declare_teleop_config = DeclareLaunchArgument(
-        'teleop_config', default_value=joy_teleop_path,
-        description='Joystick teleop configuration file')
+    joy_teleop_path = os.path.join(pkg_dir,  'config', 'joy_teleop', 'joy_teleop.yaml')
 
     joy_teleop_node = Node(
         package='joy_teleop',
         executable='joy_teleop',
-        parameters=[LaunchConfiguration('teleop_config')],
-        remappings=[('cmd_vel', LaunchConfiguration('cmd_vel'))])
+        parameters=[joy_teleop_path],
+        remappings=[('cmd_vel', LaunchConfiguration('cmd_vel'))],
+    )
+
+    launch_description.add_action(joy_teleop_node)
 
     joy_node = Node(
-        package='joy',
-        executable='joy_node',
+        package='joy_linux',
+        executable='joy_linux_node',
         name='joystick',
-        parameters=[os.path.join(pkg_dir, 'config', 'joy_config.yaml')])
+        parameters=[os.path.join(pkg_dir, 'config', 'joy_teleop', 'joy_config.yaml')],
+    )
 
-    ld = LaunchDescription()
+    launch_description.add_action(joy_node)
 
-    ld.add_action(declare_cmd_vel)
-    ld.add_action(declare_teleop_config)
-
-    ld.add_action(joy_teleop_node)
-    ld.add_action(joy_node)
-
-    return ld
+    return

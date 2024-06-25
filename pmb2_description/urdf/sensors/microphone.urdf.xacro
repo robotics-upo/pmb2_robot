@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- 
-  Copyright (c) 2022 PAL Robotics S.L. All rights reserved.
+  Copyright (c) 2024 PAL Robotics S.L. All rights reserved.
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@
     <joint name="${name}_joint" type="fixed">
       <xacro:insert_block name="origin"/>
       <child link="${name}_link"/>
-      <parent link="${parent}_link"/>
+      <parent link="${parent}"/>
     </joint>
 
   </xacro:macro>

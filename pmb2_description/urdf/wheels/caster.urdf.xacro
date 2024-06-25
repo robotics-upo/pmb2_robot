@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- 
-  Copyright (c) 2022 PAL Robotics S.L. All rights reserved.
+  Copyright (c) 2024 PAL Robotics S.L. All rights reserved.
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -24,9 +24,7 @@
       <inertial>
         <origin xyz="-0.00634599 0.00005347 -0.02037519" rpy="0 0 0"/>
         <mass value="0.05144761"/>
-        <inertia  ixx="0.00001513" ixy="-0.00000003" ixz="0.00000267"
-                  iyy="0.00001309" iyz="-0.00000005"
-                  izz="0.00001198"/>
+        <inertia ixx="0.00001513" ixy="-0.00000003" ixz="0.00000267" iyy="0.00001309" iyz="-0.00000005" izz="0.00001198"/>
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -47,10 +45,8 @@
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="0.08855784"/>
-        <inertia  ixx="0.00001075" ixy="0" ixz="0"
-                  iyy="0.00001541" iyz="0"
-                  izz="0.00001075"/>
-        </inertial>
+        <inertia ixx="0.00001075" ixy="0" ixz="0" iyy="0.00001541" iyz="0" izz="0.00001075"/>
+      </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
@@ -61,13 +57,13 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-	  <sphere radius="${radius}" /> 
+          <sphere radius="${radius}" />
         </geometry>
       </collision>
     </link>
 
     <joint name="caster_${side}_1_joint" type="continuous">
-      <parent link="${parent}_link"/>
+      <parent link="${parent}"/>
       <child link="caster_${side}_1_link"/>
       <origin xyz="${offset_x + separation_x / 2} ${offset_y - separation_y / 2} ${offset_z}" rpy="0 0 0"/>
       <axis xyz="0 0 1"/>

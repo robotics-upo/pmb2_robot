@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- 
-  Copyright (c) 2022 PAL Robotics S.L. All rights reserved.
+  Copyright (c) 2024 PAL Robotics S.L. All rights reserved.
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
             <horizontal>
               <!-- 683 steps in 240deg fov -->
               <samples>${683*(max_angle - min_angle)/(240.0 * deg_to_rad)}</samples>
-              <resolution>1</resolution> <!-- not the sensor resolution; just 1 -->
+              <resolution>1</resolution>              <!-- not the sensor resolution; just 1 -->
               <min_angle>${min_angle}</min_angle>
               <max_angle>${max_angle}</max_angle>
             </horizontal>
@@ -43,12 +43,12 @@
             <stddev>0.03</stddev>
           </noise>
         </ray>
-      	<plugin name="${name}" filename="libgazebo_ros_ray_sensor.so">
+        <plugin name="${name}" filename="libgazebo_ros_ray_sensor.so">
           <ros>
-      	    <remapping>~/out:=${ros_topic}</remapping>
+            <remapping>~/out:=${ros_topic}</remapping>
           </ros>
           <output_type>sensor_msgs/LaserScan</output_type>
-      	  <frame_name>${name}_link</frame_name>
+          <frame_name>${name}_link</frame_name>
         </plugin>
       </sensor>
       <material>Gazebo/DarkGrey</material>

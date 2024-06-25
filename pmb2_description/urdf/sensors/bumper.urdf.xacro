@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- 
-  Copyright (c) 2022 PAL Robotics S.L. All rights reserved.
+  Copyright (c) 2024 PAL Robotics S.L. All rights reserved.
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -24,9 +24,7 @@
       <inertial>
         <origin xyz="-0.05002000000 0.00000000000 0.00000000000" rpy="0 0 0"/>
         <mass value="0.15368000000"/>
-        <inertia ixx="0.00281031560" ixy="0.00000000000" ixz="0.00000000000"
-                 iyy="0.00021829037" iyz="0.00000000000"
-                 izz="0.00302258512"/>
+        <inertia ixx="0.00281031560" ixy="0.00000000000" ixz="0.00000000000" iyy="0.00021829037" iyz="0.00000000000" izz="0.00302258512"/>
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -47,8 +45,8 @@
     <joint name="${name}_joint" type="fixed">
       <axis xyz="0 1 0"/>
       <xacro:insert_block name="origin"/>
-      <parent link="${parent}_link"/>
-      <child  link="${name}_link"/>
+      <parent link="${parent}"/>
+      <child link="${name}_link"/>
     </joint>
 
     <!-- gazebo extensions -->

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- 
-  Copyright (c) 2022 PAL Robotics S.L. All rights reserved.
+  Copyright (c) 2024 PAL Robotics S.L. All rights reserved.
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -20,13 +20,11 @@
 
   <xacro:macro name="sick_tim561_laser" params="name parent *origin ros_topic update_rate min_angle max_angle">
 
-     <link name="${name}_link" type="laser">
+    <link name="${name}_link" type="laser">
       <inertial>
         <origin xyz="-0.02559000000 -0.00056000000 -0.05732000000" rpy="0 0 0"/>
         <mass value="0.28922000000"/>
-        <inertia ixx="0.00002628919" ixy="0.00000024298" ixz="-0.00000368129"
-                 iyy="0.00003374542" iyz="-0.00000001330"
-                 izz="0.00005832599"/>
+        <inertia ixx="0.00002628919" ixy="0.00000024298" ixz="-0.00000368129" iyy="0.00003374542" iyz="-0.00000001330" izz="0.00005832599"/>
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -40,8 +38,8 @@
     <joint name="${name}_joint" type="fixed">
       <axis xyz="0 1 0"/>
       <xacro:insert_block name="origin"/>
-      <parent link="${parent}_link"/>
-      <child  link="${name}_link"/>
+      <parent link="${parent}"/>
+      <child link="${name}_link"/>
     </joint>
 
     <!-- gazebo extensions -->
