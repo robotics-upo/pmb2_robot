@@ -2,8 +2,8 @@
 Changelog for package pmb2_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.0.22 (2024-06-25)
+-------------------
 * Merge branch 'omm/complete_std' into 'humble-devel'
   Complete std
   See merge request robots/pmb2_robot!129
