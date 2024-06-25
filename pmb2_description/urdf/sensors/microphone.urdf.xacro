@@ -24,7 +24,7 @@
     <joint name="${name}_joint" type="fixed">
       <xacro:insert_block name="origin"/>
       <child link="${name}_link"/>
-      <parent link="${parent}_link"/>
+      <parent link="${parent}"/>
     </joint>
 
   </xacro:macro>

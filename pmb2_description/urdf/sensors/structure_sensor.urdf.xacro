@@ -26,7 +26,7 @@
       <xacro:insert_block name="origin"/>
       <axis xyz="0 0 1"/>
       <!-- <limit lower="0" upper="0.001" effort="100" velocity="0.01"/> -->
-      <parent link="${parent}_link"/>
+      <parent link="${parent}"/>
       <child link="${name}_link"/>
     </joint>
 

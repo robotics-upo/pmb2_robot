@@ -63,7 +63,7 @@
     </link>
 
     <joint name="caster_${side}_1_joint" type="continuous">
-      <parent link="${parent}_link"/>
+      <parent link="${parent}"/>
       <child link="caster_${side}_1_link"/>
       <origin xyz="${offset_x + separation_x / 2} ${offset_y - separation_y / 2} ${offset_z}" rpy="0 0 0"/>
       <axis xyz="0 0 1"/>

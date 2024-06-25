@@ -59,7 +59,7 @@
       <axis xyz="0 0 1"/>
       <limit effort="100.0" lower="-0.005" upper="0.005" velocity="1.0"/>
       <child link="suspension_${side}_link"/>
-      <parent link="${parent}_link"/>
+      <parent link="${parent}"/>
       <calibration rising="0.0" />
       <dynamics damping="100"/>
 
