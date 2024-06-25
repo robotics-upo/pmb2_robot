@@ -2,6 +2,20 @@
 Changelog for package pmb2_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'omm/complete_std' into 'humble-devel'
+  Complete std
+  See merge request robots/pmb2_robot!129
+* Fix linters
+* Restructure launch file
+* change to joy_linux and update joystick config
+* Add public sim
+* Update copyright + move imu into sensors
+* Cleaning and proper main structure
+* Launch standarization
+* Contributors: David ter Kuile, Oscar, davidterkuile, oscarmartinez, thomas.peyrucain
+
 5.0.21 (2024-06-20)
 -------------------
 

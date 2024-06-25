@@ -2,6 +2,17 @@
 Changelog for package pmb2_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'omm/complete_std' into 'humble-devel'
+  Complete std
+  See merge request robots/pmb2_robot!129
+* Add imu broadcaster
+* Fix linters
+* Update copyright + move imu into sensors
+* Launch standarization
+* Contributors: David ter Kuile, Oscar, davidterkuile, thomas.peyrucain
+
 5.0.21 (2024-06-20)
 -------------------
 * Remove casters and suspension from joint_state_broadcaster

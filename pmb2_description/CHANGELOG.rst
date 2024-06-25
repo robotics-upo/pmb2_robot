@@ -2,6 +2,27 @@
 Changelog for package pmb2_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'omm/complete_std' into 'humble-devel'
+  Complete std
+  See merge request robots/pmb2_robot!129
+* Move _link to top file xacro
+* Remove colon from urdf
+* Update xacro of the base
+* Fix linters
+* Add public sim
+* URDF cleanup
+* Fix tests
+* Update copyright + move imu into sensors
+* Cleanup + move deg_to_rad to robot urdf
+* Bring back the parameters
+* Rename file because of dependency error, will be handled in another task
+* Unified style and namings
+* Cleaning and proper main structure
+* Launch standarization
+* Contributors: David ter Kuile, Oscar, davidterkuile, oscarmartinez, thomas.peyrucain
+
 5.0.21 (2024-06-20)
 -------------------
 
