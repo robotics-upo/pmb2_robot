@@ -2,6 +2,14 @@
 Changelog for package pmb2_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'dtk/move-robot-args' into 'humble-devel'
+  Dtk/move robot args
+  See merge request robots/pmb2_robot!133
+* Change import for launch args
+* Contributors: David ter Kuile, davidterkuile
+
 5.0.22 (2024-06-25)
 -------------------
 * Merge branch 'omm/complete_std' into 'humble-devel'
