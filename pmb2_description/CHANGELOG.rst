@@ -2,8 +2,8 @@
 Changelog for package pmb2_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.0.23 (2024-06-26)
+-------------------
 * Merge branch 'dtk/move-robot-args' into 'humble-devel'
   Dtk/move robot args
   See merge request robots/pmb2_robot!133
