@@ -2,8 +2,8 @@
 Changelog for package pmb2_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.0.24 (2024-06-27)
+-------------------
 * Merge branch 'dtk/rgbd-sensors' into 'humble-devel'
   Dtk/rgbd sensors
   See merge request robots/pmb2_robot!135
