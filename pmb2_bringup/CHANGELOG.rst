@@ -2,6 +2,15 @@
 Changelog for package pmb2_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'dtk/rgbd-sensors' into 'humble-devel'
+  Dtk/rgbd sensors
+  See merge request robots/pmb2_robot!135
+* Change courier sensors to add-on-module
+* Change has_courier_rgbd_sensors to rgbd_sensors
+* Contributors: David ter Kuile, davidterkuile
+
 5.0.23 (2024-06-26)
 -------------------
 * Merge branch 'dtk/move-robot-args' into 'humble-devel'

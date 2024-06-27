@@ -2,6 +2,19 @@
 Changelog for package pmb2_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'dtk/rgbd-sensors' into 'humble-devel'
+  Dtk/rgbd sensors
+  See merge request robots/pmb2_robot!135
+* Change courier sensors to add-on-module
+* Change has_courier_rgbd_sensors to rgbd_sensors
+* Merge branch 'fix/set_casters_suspension_fixed' into 'humble-devel'
+  Set casters and suspension joints to fixed
+  See merge request robots/pmb2_robot!134
+* Set casters and suspension joints to fixed
+* Contributors: David ter Kuile, Noel Jimenez, davidterkuile
+
 5.0.23 (2024-06-26)
 -------------------
 * Merge branch 'dtk/move-robot-args' into 'humble-devel'
