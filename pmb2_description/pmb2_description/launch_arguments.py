@@ -30,4 +30,4 @@ class PMB2Args:
 
     wheel_model: DLA = __arg_creator.get_argument('wheel_model')
     laser_model: DLA = __arg_creator.get_argument('laser_model')
-    rgbd_sensors: DLA = __arg_creator.get_argument('rgbd_sensors')
+    add_on_module: DLA = __arg_creator.get_argument('add_on_module')

@@ -6,7 +6,7 @@ laser_model:
   description: 'Base laser model'
   choices: ['no-laser', 'sick-571', 'sick-561', 'sick-551', 'hokuyo']
   default_value: 'sick-571'
-rgbd_sensors:
-  description: 'Whether the base has RGBD sensors or not'
-  choices: ['True', 'False']
-  default_value: 'False'
+add_on_module:
+  description: 'Whether the base has an extra add on module'
+  choices: ['no-add-on', 'rgbd-sensors']
+  default_value: 'rgbd-sensors'
