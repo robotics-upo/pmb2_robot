@@ -2,8 +2,8 @@
 Changelog for package pmb2_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.0.25 (2024-06-28)
+-------------------
 * Add imu sensor broadcaster
 * Contributors: davidterkuile
 
