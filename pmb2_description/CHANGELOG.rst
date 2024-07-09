@@ -2,8 +2,8 @@
 Changelog for package pmb2_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.0.26 (2024-07-09)
+-------------------
 * Add warning for pal_module_cmake not found
 * Contributors: Noel Jimenez
 
