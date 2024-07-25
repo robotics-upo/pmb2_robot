@@ -9,4 +9,4 @@ laser_model:
 add_on_module:
   description: 'Whether the base has an extra add on module'
   choices: ['no-add-on', 'rgbd-sensors']
-  default_value: 'rgbd-sensors'
+  default_value: 'no-add-on'
