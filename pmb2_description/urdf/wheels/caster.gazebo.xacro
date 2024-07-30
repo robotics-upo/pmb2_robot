@@ -22,40 +22,19 @@
     <!-- Contact model for the caster wheel surface -->
 
     <gazebo reference="caster_${side}_1_link">
-      <kp>1000000.0</kp>
-      <kd>10000.0</kd>
-      <mu1>0.0</mu1>
-      <mu2>0.0</mu2>
-      <!--<fdir1>1 0 0</fdir1>-->
-      <max_vel>1.0</max_vel>
-      <min_depth>0.005</min_depth>
+      <mu1>0.1</mu1>
+      <mu2>0.1</mu2>
+      <kp>100000.0</kp>
+      <kd>1.0</kd>
       <material>Gazebo/DarkGrey</material>
     </gazebo>
 
     <gazebo reference="caster_${side}_2_link">
-      <kp>1000000.0</kp>
-      <kd>10000.0</kd>
-      <mu1>0.0</mu1>
-      <mu2>0.0</mu2>
-      <!--<fdir1>1 0 0</fdir1>-->
-      <max_vel>1.0</max_vel>
-      <min_depth>0.005</min_depth>
+      <mu1>0.1</mu1>
+      <mu2>0.1</mu2>
+      <kp>100000.0</kp>
+      <kd>1.0</kd>
       <material>Gazebo/DarkGrey</material>
-    </gazebo>
-
-    <gazebo reference="caster_{side}_1_joint">
-      <physics>
-        <ode>
-          <implicit_spring_damper>0</implicit_spring_damper>
-        </ode>
-      </physics>
-    </gazebo>
-    <gazebo reference="caster_{side}_2_joint">
-      <physics>
-        <ode>
-          <implicit_spring_damper>0</implicit_spring_damper>
-        </ode>
-      </physics>
     </gazebo>
 
   </xacro:macro>
