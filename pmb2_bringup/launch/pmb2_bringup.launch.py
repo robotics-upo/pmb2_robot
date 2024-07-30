@@ -52,7 +52,9 @@ def declare_actions(
     default_controllers = include_scoped_launch_py_description(
         pkg_name='pmb2_controller_configuration',
         paths=['launch', 'default_controllers.launch.py'],
-        launch_arguments={}
+        launch_arguments={
+            'is_public_sim': launch_args.is_public_sim,
+        }
     )
 
     launch_description.add_action(default_controllers)

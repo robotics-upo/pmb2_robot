@@ -18,13 +18,18 @@ import os
 from ament_index_python.packages import get_package_share_directory
 from controller_manager.launch_utils import generate_load_controller_launch_description
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
 from launch.actions import GroupAction
 from launch_pal.arg_utils import LaunchArgumentsBase
+from launch_pal.robot_arguments import CommonArgs
+from launch_pal.arg_utils import read_launch_argument
+from launch.actions import SetLaunchConfiguration, OpaqueFunction
+from launch.substitutions import LaunchConfiguration
 
 
 @dataclass(frozen=True)
 class LaunchArguments(LaunchArgumentsBase):
-    pass
+    is_public_sim: DeclareLaunchArgument = CommonArgs.is_public_sim
 
 
 def generate_launch_description():
@@ -45,13 +50,16 @@ def declare_actions(
 ):
     pkg_share_folder = get_package_share_directory('pmb2_controller_configuration')
 
+    launch_description.add_action(OpaqueFunction(
+        function=set_base_config_file))
+
     # Base controller
     base_controller = GroupAction(
         [
             generate_load_controller_launch_description(
                 controller_name='mobile_base_controller',
                 controller_params_file=os.path.join(
-                    pkg_share_folder, 'config', 'mobile_base_controller.yaml')
+                    pkg_share_folder, 'config', LaunchConfiguration("base_config_file"))
             )
         ],
     )
@@ -81,3 +89,15 @@ def declare_actions(
     launch_description.add_action(imu_sensor_broadcaster)
 
     return
+
+
+def set_base_config_file(context):
+
+    is_public_sim = read_launch_argument("is_public_sim", context)
+
+    base_config_file = 'mobile_base_controller.yaml'
+
+    if is_public_sim:
+        base_config_file = 'mobile_base_controller_public_sim.yaml'
+
+    return [SetLaunchConfiguration("base_config_file", base_config_file)]
