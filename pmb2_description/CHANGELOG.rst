@@ -2,8 +2,8 @@
 Changelog for package pmb2_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.0.27 (2024-07-31)
+-------------------
 * Adapting gazebo parameters that was causing the base to move strangly
 * Defauld add-on-module is no-add-on
 * Contributors: David ter Kuile, thomas.peyrucain
