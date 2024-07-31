@@ -2,6 +2,9 @@
 Changelog for package pmb2_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 5.0.26 (2024-07-09)
 -------------------
 * Add warning for pal_module_cmake not found

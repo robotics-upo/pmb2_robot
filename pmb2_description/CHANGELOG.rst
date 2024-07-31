@@ -2,6 +2,12 @@
 Changelog for package pmb2_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Adapting gazebo parameters that was causing the base to move strangly
+* Defauld add-on-module is no-add-on
+* Contributors: David ter Kuile, thomas.peyrucain
+
 5.0.26 (2024-07-09)
 -------------------
 * Add warning for pal_module_cmake not found
