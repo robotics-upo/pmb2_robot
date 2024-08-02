@@ -2,6 +2,11 @@
 Changelog for package pmb2_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Use controller_type from the controllers config
+* Contributors: Noel Jimenez
+
 5.0.27 (2024-07-31)
 -------------------
 
