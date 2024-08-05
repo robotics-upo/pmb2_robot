@@ -2,6 +2,11 @@
 Changelog for package pmb2_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Publish odom tf for public sim
+* Contributors: David ter Kuile
+
 5.1.0 (2024-08-02)
 ------------------
 
