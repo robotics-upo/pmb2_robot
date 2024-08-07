@@ -2,8 +2,8 @@
 Changelog for package pmb2_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.1.2 (2024-08-07)
+------------------
 * Fix error of loading mobile_base_controller.yaml
 * Contributors: David ter Kuile
 
