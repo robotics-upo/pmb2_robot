@@ -2,6 +2,11 @@
 Changelog for package pmb2_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix error of loading mobile_base_controller.yaml
+* Contributors: David ter Kuile
+
 5.1.1 (2024-08-05)
 ------------------
 * Publish odom tf for public sim
