@@ -58,8 +58,7 @@ def declare_actions(
         [
             generate_load_controller_launch_description(
                 controller_name='mobile_base_controller',
-                controller_params_file=os.path.join(
-                    pkg_share_folder, 'config', LaunchConfiguration("base_config_file"))
+                controller_params_file=LaunchConfiguration("base_config_file")
             )
         ],
     )
@@ -94,10 +93,13 @@ def declare_actions(
 def set_base_config_file(context):
 
     is_public_sim = read_launch_argument("is_public_sim", context)
+    pkg_share_folder = get_package_share_directory('pmb2_controller_configuration')
 
-    base_config_file = 'mobile_base_controller.yaml'
+    controller_file = 'mobile_base_controller.yaml'
 
     if is_public_sim:
-        base_config_file = 'mobile_base_controller_public_sim.yaml'
+        controller_file = 'mobile_base_controller_public_sim.yaml'
+
+    base_config_file = os.path.join(pkg_share_folder, 'config', controller_file)
 
     return [SetLaunchConfiguration("base_config_file", base_config_file)]
