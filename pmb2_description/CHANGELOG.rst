@@ -2,8 +2,8 @@
 Changelog for package pmb2_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.1.3 (2024-08-19)
+------------------
 * Merge branch 'tpe/fix/slipping' into 'humble-devel'
   Fix slippage gazebo issue happening on pmb2
   See merge request robots/pmb2_robot!144
