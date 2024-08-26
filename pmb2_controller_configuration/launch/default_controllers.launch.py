@@ -58,7 +58,8 @@ def declare_actions(
         [
             generate_load_controller_launch_description(
                 controller_name='mobile_base_controller',
-                controller_params_file=LaunchConfiguration("base_config_file")
+                controller_params_file=LaunchConfiguration("base_config_file"),
+                controller_type='diff_drive_controller/DiffDriveController'
             )
         ],
     )
@@ -70,7 +71,9 @@ def declare_actions(
             generate_load_controller_launch_description(
                 controller_name='joint_state_broadcaster',
                 controller_params_file=os.path.join(
-                    pkg_share_folder, 'config', 'joint_state_broadcaster.yaml'))
+                    pkg_share_folder, 'config', 'joint_state_broadcaster.yaml'),
+                controller_type='joint_state_broadcaster/JointStateBroadcaster'
+            )
         ],
     )
     launch_description.add_action(joint_state_broadcaster)
@@ -81,8 +84,9 @@ def declare_actions(
             generate_load_controller_launch_description(
                 controller_name='imu_sensor_broadcaster',
                 controller_params_file=os.path.join(
-                    pkg_share_folder, 'config', 'imu_sensor_broadcaster.yaml'))
-
+                    pkg_share_folder, 'config', 'imu_sensor_broadcaster.yaml'),
+                controller_type='imu_sensor_broadcaster/IMUSensorBroadcaster'
+            )
         ],
     )
     launch_description.add_action(imu_sensor_broadcaster)
