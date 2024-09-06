@@ -20,7 +20,7 @@
   <!-- ARGUMENTS -->
 
   <!-- no-laser, hokuyo, sick-551, sick-561, sick-571-->
-  <xacro:arg name="laser_model" default="sick-571"/>
+  <xacro:arg name="laser_model" default="sick-571-gpu"/>
 
   <!-- false, true -->
   <xacro:arg name="has_sonars" default="true"/>
@@ -46,7 +46,7 @@
   <xacro:property name="add_on_module" value="$(arg add_on_module)"/>
 
   <!-- HW configuration check -->
-  <xacro:if value="${laser_model not in ['no-laser', 'sick-551', 'sick-561', 'sick-571', 'hokuyo']}">
+  <xacro:if value="${laser_model not in ['no-laser', 'sick-551', 'sick-561', 'sick-571', 'sick-571-gpu', 'hokuyo']}">
     <xacro:wrong_laser_model/>
   </xacro:if>
   <xacro:if value="${add_on_module not in ['no-add-on', 'rgbd-sensors']}">

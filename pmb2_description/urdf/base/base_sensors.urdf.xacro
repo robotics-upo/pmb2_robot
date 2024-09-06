@@ -29,6 +29,7 @@
   <xacro:include filename="$(find pmb2_description)/urdf/sensors/sick_tim551_laser.urdf.xacro"/>
   <xacro:include filename="$(find pmb2_description)/urdf/sensors/sick_tim561_laser.urdf.xacro"/>
   <xacro:include filename="$(find pmb2_description)/urdf/sensors/sick_tim571_laser.urdf.xacro"/>
+  <xacro:include filename="$(find pmb2_description)/urdf/sensors/sick_tim571_laser_gpu.urdf.xacro"/>
   <xacro:include filename="$(find pmb2_description)/urdf/sensors/range.urdf.xacro"/>
   <xacro:include filename="$(find pmb2_description)/urdf/sensors/microphone.urdf.xacro"/>
 
@@ -79,6 +80,16 @@
       <xacro:sick_tim571_laser name="${name}_laser" parent="${name}_link" ros_topic="scan_raw" update_rate="10" min_angle="${-110 * deg_to_rad}" max_angle="${110 * deg_to_rad}">
         <origin xyz="${base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 0" />
       </xacro:sick_tim571_laser>
+
+    </xacro:if>
+
+    <!-- sick-571-gpu -->
+    <xacro:if value="${laser_model == 'sick-571-gpu'}">
+
+      <!-- Theoretic FOV = 220 -->
+      <xacro:sick_tim571_laser_gpu name="${name}_laser" parent="${name}_link" ros_topic="scan_raw" update_rate="10" min_angle="${-110 * deg_to_rad}" max_angle="${110 * deg_to_rad}">
+        <origin xyz="${base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 0" />
+      </xacro:sick_tim571_laser_gpu>
 
     </xacro:if>
 
